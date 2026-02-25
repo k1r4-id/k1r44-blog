@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.1rem !important;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
+  font-size: 1rem !important;
+}
+
+.main-container {
+  position: relative;
+  background-color: #0d1116;
+  min-height: 100vh;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5000ca;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+p, a, h1, h2, h3, h4, h5, label, button {
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+.navigation-bar {
+  justify-content: space-between;
+  background-color: #0d1116;
+
+  button {
+    font-size: 1.1rem;
+    font-family: "Lato", sans-serif;
+    text-transform: initial;
+    padding: 6px 10px;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.navigation-bar-responsive {
+  span, p {
+    color: #0d1116;
+    font-family: "Lato", sans-serif;
+  }
+}
+
+.container {
+  margin-top: 64px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-image {
+  width: 100%;
+  height: 450px;
+
+  img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+}
+
+.mobile-menu-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.items-container {
+  padding: 5% 10%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.light-mode {
+  background-color: #f0f2f5;
+
+  .navigation-bar {
+    background-color: #f0f2f5;
+  }
+
+  p, a, h1, h2, h3, h4, h5, label, button {
+    color: #1a1a2e;
+  }
+
+  a:hover {
+    color: #0080ff;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  }
+
+  .navigation-bar svg {
+    color: #1a1a2e;
+  }
+
+  .about-section {
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 128, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+  }
+
+  .skills-container svg {
+    color: #1a1a2e;
+  }
+
+  .chip {
+    background-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .vertical-timeline::before {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+    color: #666;
+  }
+
+  .vertical-timeline-element-content-arrow {
+    border-right: 7px solid rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .flex-chips .chip-title {
+    color: #1a1a2e;
+  }
+
+  // MUI component overrides for light mode
+  .MuiAppBar-root {
+    background: rgba(240, 242, 245, 0.85) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .MuiCard-root,
+  .MuiPaper-root {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(0, 128, 255, 0.2) !important;
+  }
+
+  .MuiTypography-root {
+    color: #1a1a2e;
+  }
+
+  .MuiChip-root {
+    background: rgba(0, 128, 255, 0.08) !important;
+    border-color: rgba(0, 128, 255, 0.2) !important;
+    color: #0060c0 !important;
+  }
+
+  .MuiInputBase-root {
+    color: #1a1a2e !important;
+  }
+
+  .MuiInputBase-input::placeholder {
+    color: rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+@media screen {
+  @media (max-width: 768px) {
+    .items-container {
+      padding: 5% 5%;
+    }
+  }
+}
