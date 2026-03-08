@@ -122,7 +122,7 @@ function highlightCodeHTML(codeText: string, lang: string, accent: string): stri
     out = out.replace(regex, (m) => {
       const idx = tokens.length;
       tokens.push({ style, text: m });
-      return `\x00T${idx}T\x00`;
+      return `\u2060\u2061${idx}\u2061\u2060`;
     });
   };
   const l = (lang || '').toLowerCase();
@@ -187,7 +187,7 @@ function highlightCodeHTML(codeText: string, lang: string, accent: string): stri
     apply(/(["'])[^"']*\1/g, `color:${stringColor}`);
     apply(/\b\d+(?:\.\d+)?\b/g, `color:${numberColor}`);
   }
-  out = out.replace(/\x00T(\d+)T\x00/g, (_, idx) => {
+  out = out.replace(/\u2060\u2061(\d+)\u2061\u2060/g, (_, idx) => {
     const t = tokens[parseInt(idx)];
     return `<span style="${t.style}">${t.text}</span>`;
   });
