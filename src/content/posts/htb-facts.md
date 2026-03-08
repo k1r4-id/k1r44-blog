@@ -1,6 +1,6 @@
 ---
 title: "Facts — HackTheBox Writeup"
-date: "2025-06-15"
+date: "2026-02-23"
 description: "Easy Linux machine involving Camaleon CMS exploitation with CVE-2025-2304 (Mass Assignment) and CVE-2024-46987 (Path Traversal), MinIO S3 enumeration, SSH key cracking, and sudo facter privilege escalation."
 tags: ['hackthebox', 'writeup', 'web pentest', 'linux', 'CVE']
 thumbnail: "/attachments/facts/facts.png"
