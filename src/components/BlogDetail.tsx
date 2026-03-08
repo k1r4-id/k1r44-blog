@@ -117,8 +117,13 @@ function highlightCodeHTML(codeText: string, lang: string, accent: string): stri
   const attrColor = '#f2cdcd';
   const boolColor = '#cba6f7';
   let out = esc;
+  const tokens: { style: string; text: string }[] = [];
   const apply = (regex: RegExp, style: string) => {
-    out = out.replace(regex, (m) => `<span style="${style}">${m}</span>`);
+    out = out.replace(regex, (m) => {
+      const idx = tokens.length;
+      tokens.push({ style, text: m });
+      return `\x00T${idx}T\x00`;
+    });
   };
   const l = (lang || '').toLowerCase();
   if (['js', 'javascript', 'ts', 'typescript', 'tsx', 'jsx'].includes(l)) {
@@ -182,6 +187,10 @@ function highlightCodeHTML(codeText: string, lang: string, accent: string): stri
     apply(/(["'])[^"']*\1/g, `color:${stringColor}`);
     apply(/\b\d+(?:\.\d+)?\b/g, `color:${numberColor}`);
   }
+  out = out.replace(/\x00T(\d+)T\x00/g, (_, idx) => {
+    const t = tokens[parseInt(idx)];
+    return `<span style="${t.style}">${t.text}</span>`;
+  });
   return out;
 }
 
